@@ -1,0 +1,432 @@
+/* Mind-sage appearance & contrast system. The chosen theme changes presentation only.
+   Default appearance: original green/cream editorial design. */
+:root {
+  color-scheme: light;
+  --ms-bg: #f8f7f1;
+  --ms-surface: #ffffff;
+  --ms-elevated: #edf3eb;
+  --ms-text: #173b30;
+  --ms-muted: #526d5e;
+  --ms-border: #d8e3d9;
+  --ms-link: #205641;
+  --ms-accent: #163f31;
+  --ms-focus: #a97c27;
+}
+.studio-theme-toggle {
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:1px solid #c8d8ca;border-radius:999px;background:#e8f0e6;
+  color:#214735;min-height:41px;padding:9px 12px;font:800 11px/1.2 'Manrope',sans-serif;
+  white-space:nowrap;cursor:pointer;transition:background .2s,transform .2s,border-color .2s;
+}
+.studio-theme-toggle:hover {background:#dae9d9;border-color:#769982;transform:translateY(-1px)}
+.studio-theme-toggle svg {flex-shrink:0}
+.studio-theme-toggle:focus-visible {outline:3px solid var(--ms-focus)!important;outline-offset:3px!important}
+.studio-drawer-appearance {display:flex;justify-content:flex-start;padding:13px 4px;border-bottom:1px solid #dbe5dc}
+.studio-theme-mobile {width:100%;justify-content:flex-start;padding:13px 16px;border-radius:9px}
+@media(max-width:1100px) and (min-width:771px){.studio-theme-toggle{padding:9px 10px}.studio-theme-toggle span{display:none}}
+@media(max-width:520px){.studio-controls{gap:6px!important}.studio-theme-toggle:not(.studio-theme-mobile){min-width:38px;min-height:38px;padding:8px}.studio-theme-toggle:not(.studio-theme-mobile) span{display:none}.studio-theme-mobile{display:flex}}
+
+/* Important light-theme contrast correction: dark photographic panels must not inherit
+   the global dark-green h1 rule from atelier.css. */
+.studio-app .vani-hero .vani-overlay h1,
+.studio-app .vani-hero .vani-overlay blockquote,
+.studio-app .calm-hero h1,
+.studio-app .calm-hero h2,
+.studio-app .support-spotlight h2,
+.studio-app .studio-support-panel h2,
+.studio-app .studio-support-panel h3,
+.studio-app .up-hero h1,
+.studio-app .v4-video-hero h1,
+.studio-app .v3-hero h1,
+.studio-app .v3-pagehead h1,
+.studio-app .care-banner h1,
+.studio-app .dash-hero h2 {color:#f8fbf5!important}
+.studio-app .vani-hero .vani-overlay h1 {text-shadow:0 2px 18px rgba(0,0,0,.24)}
+.studio-app .vani-hero .vani-overlay blockquote {text-shadow:0 1px 6px rgba(0,0,0,.24)}
+.studio-app .vani-hero .vani-overlay p {color:#f0f5ed!important}
+.studio-app .vani-hero .vani-overlay .eyebrow {color:#f4df9d!important}
+.studio-app .vani-hero .vani-overlay .vani-link {color:#fff2bd!important}
+.studio-app .vani-hero .vani-overlay .vani-nav span {color:#e5efe3!important}
+.studio-app .vani-hero .vani-overlay .btn-light {color:#173f32!important;background:#f8f8ed!important}
+
+/* Dark appearance: restrained forest-green surfaces and warm off-white text. */
+html[data-theme="dark"] {
+  color-scheme:dark;
+  --at-forest:#c7e3cd;--at-dark:#d8edda;--at-green:#b4ddc0;
+  --at-green2:#abd0b6;--at-cream:#101d17;--at-cream2:#1b2a21;
+  --at-ink:#f1f6eb;--at-body:#c2d3c5;--at-line:#395748;--at-white:#1b3026;
+  --pine:#123c32;--pine2:#1d5947;--mint:#315545;--mintdark:#8fc6a4;
+  --ink:#f1f6eb;--inksoft:#c6d5ca;--secondary:#b8c9bd;
+  --cream:#101d17;--white:#1b3026;--line:#395748;--soft:#263d2e;
+  --sand:#3b3928;--coral:#47352e;--lilac:#313249;
+  --shadow:0 16px 38px rgba(0,0,0,.2);
+  --ms-bg:#101d17;--ms-surface:#1b3026;--ms-elevated:#263e31;
+  --ms-text:#f1f6eb;--ms-muted:#c2d3c5;--ms-border:#395748;
+  --ms-link:#caeacb;--ms-accent:#b4ddc0;--ms-focus:#ebce83;
+}
+html[data-theme="dark"] body,
+html[data-theme="dark"] .studio-app,
+html[data-theme="dark"] .studio-app .content.studio-content,
+html[data-theme="dark"] .studio-app.refresh-app .content.studio-content,
+html[data-theme="dark"] .studio-app.refresh-app .content.studio-content.refresh-content-home {
+  background:var(--ms-bg)!important;color:var(--ms-text)!important;
+}
+html[data-theme="dark"] .studio-app :is(h1,h2,h3,h4,h5,h6){color:var(--ms-text)}
+html[data-theme="dark"] .studio-app :is(p,small,label,legend,li,dd,dt){color:var(--ms-muted)}
+html[data-theme="dark"] .studio-app :is(a,.inline-link){color:var(--ms-link)}
+html[data-theme="dark"] .studio-header {background:rgba(19,34,27,.98);border-bottom-color:var(--ms-border)}
+html[data-theme="dark"] .studio-logo {color:var(--ms-text)}
+html[data-theme="dark"] .studio-logo-type>span {color:#b4e5bd}
+html[data-theme="dark"] .studio-logo small,
+html[data-theme="dark"] .studio-topnav a {color:#c6d7c8}
+html[data-theme="dark"] .studio-topnav a:is(:hover,.current){color:#f4fff3;border-bottom-color:#b8dbb5}
+html[data-theme="dark"] .studio-logo-rule {background:#476b56}
+html[data-theme="dark"] .studio-explore summary {color:#edf6ec}
+html[data-theme="dark"] .studio-explore summary:hover {color:#fff}
+html[data-theme="dark"] .studio-mega {background:#1b3026;border-color:#395748;box-shadow:0 28px 80px rgba(0,0,0,.35)}
+html[data-theme="dark"] .studio-mega h3 {color:#f3f8ec}
+html[data-theme="dark"] .studio-mega p {color:#bed1c1}
+html[data-theme="dark"] .studio-mega a {color:#e2f0dc;border-bottom-color:#3c5644}
+html[data-theme="dark"] .studio-mega a:hover {background:#294536;color:#fff}
+html[data-theme="dark"] .studio-app .studio-lang {background:#203b2c!important;color:#f4f8f1!important;border-color:#506d54!important}
+html[data-theme="dark"] .studio-menu-button {background:#203b2c;border-color:#506d54;color:#eaf5e7}
+html[data-theme="dark"] .studio-theme-toggle {background:#234233;border-color:#577b60;color:#f3f9f0}
+html[data-theme="dark"] .studio-theme-toggle:hover {background:#305441;border-color:#a0c6a1}
+html[data-theme="dark"] .studio-drawer-appearance {border-bottom-color:#395748}
+html[data-theme="dark"] .studio-mobile-drawer {background:#14251c;box-shadow:-22px 0 60px rgba(0,0,0,.48)}
+html[data-theme="dark"] .studio-drawer-head {border-color:#385344}
+html[data-theme="dark"] .studio-drawer-head strong {color:#f4f8ef}
+html[data-theme="dark"] .studio-drawer-head strong span {color:#b5dab5}
+html[data-theme="dark"] .studio-drawer-close {background:#284436;color:#eaf3e5}
+html[data-theme="dark"] .studio-drawer-scroll section {border-color:#395748}
+html[data-theme="dark"] .studio-drawer-scroll h3 {color:#b4cbbb}
+html[data-theme="dark"] .studio-drawer-scroll a {color:#e6f1e6}
+html[data-theme="dark"] .studio-drawer-scroll a:hover {background:#284536}
+html[data-theme="dark"] .studio-page-context,
+html[data-theme="dark"] .studio-page-context a {color:#bed1c2}
+html[data-theme="dark"] .studio-intro-kicker,
+html[data-theme="dark"] .studio-eyebrow,
+html[data-theme="dark"] .studio-wisdom-copy>span {color:#b7d9b9}
+html[data-theme="dark"] .studio-intro-grid h1,
+html[data-theme="dark"] .studio-section-intro h2,
+html[data-theme="dark"] .studio-section-intro h2 em {color:#f1f6eb}
+html[data-theme="dark"] .studio-intro-grid h1 em{color:#b8dfb5}
+html[data-theme="dark"] .studio-intro-side p,
+html[data-theme="dark"] .studio-section-intro>p,
+html[data-theme="dark"] .studio-value-strip span {color:#c4d7c8}
+html[data-theme="dark"] .studio-value-strip {border-color:#385748}
+html[data-theme="dark"] .studio-text-link {color:#ccebd1}
+html[data-theme="dark"] .studio-stage-list {background:#1b3026;border-color:#395748}
+html[data-theme="dark"] .studio-stage {background:#1b3026;color:#f3f7ed;border-color:#395748}
+html[data-theme="dark"] .studio-stage:hover {background:#284637}
+html[data-theme="dark"] .studio-stage-number {color:#b7cfb9}
+html[data-theme="dark"] .studio-stage-name {color:#f1f7ef}
+html[data-theme="dark"] .studio-stage-name small {color:#c8d8ca}
+html[data-theme="dark"] .studio-stage-icon {background:#2d4c38;color:#d2edcc}
+html[data-theme="dark"] .studio-stage-go {color:#e6f3e7}
+html[data-theme="dark"] .studio-feature-tile,
+html[data-theme="dark"] .studio-tool-item {background:#1b3026;border-color:#395748;color:#edf5e9}
+html[data-theme="dark"] .studio-feature-tile:hover,
+html[data-theme="dark"] .studio-tool-item:hover {background:#294434}
+html[data-theme="dark"] .studio-feature-tile h3,
+html[data-theme="dark"] .studio-tool-item strong {color:#f2f7ed}
+html[data-theme="dark"] .studio-feature-tile p,
+html[data-theme="dark"] .studio-tool-item small {color:#c3d7c6}
+html[data-theme="dark"] .studio-tool-grid {background:#3d5946;border-color:#3d5946}
+html[data-theme="dark"] .studio-tool-icon {background:#345541;color:#e1f1df}
+html[data-theme="dark"] .studio-tool-arrow {color:#cce3ca}
+html[data-theme="dark"] .studio-wisdom {background:#263d30}
+html[data-theme="dark"] .studio-wisdom-portrait {background:#263c31}
+html[data-theme="dark"] .studio-wisdom blockquote {color:#e5f1e4}
+html[data-theme="dark"] .studio-wisdom p {color:#c3d7c4}
+html[data-theme="dark"] .studio-wisdom a {color:#ddf3d5}
+html[data-theme="dark"] .studio-support-panel {background:#234633;border:1px solid #517458}
+html[data-theme="dark"] .studio-support-panel :is(h2,p,span) {color:#f2f8ef!important}
+html[data-theme="dark"] .studio-footer {background:#0a1811;border-top:1px solid #385648}
+html[data-theme="dark"] .studio-footer a {color:#e5f2e4}
+html[data-theme="dark"] .studio-footer p,
+html[data-theme="dark"] .studio-footer-bottom {color:#b7cdb9}
+
+/* Cross-page surfaces, headings, labels and data values. */
+html[data-theme="dark"] .studio-app :is(.surface-card,.form-card,.question-box,.report-score,.report-card,.detail-card,.care-paper,.care-link,.care-guardian-hero,.support-entry,.v4-video-card,.v4-channel-card,.v3-story-tile,.v3-journal-card,.v3-feature,.bro-card,.challenge-card,.mood-tile,.level-card,.up-card,.up-panel,.up-report-card,.up-stat,.up-table,.up-item,.up-note,.up-hero-card,.insight-stat,.trend-card,.diary-form,.research-layout section,.exercise-shell,.scenario-card,.scenario-question,.privacy-grid article,.contact-card,.contact-intro-banner,.contact-extra-grid article,.contact-line,.quote-card,.motivation-card,.chat-card,.chat-side .surface-card,.v3-panel,.v3-card,.v3-dash-spotlight a,.v3-tile,.v3-stats,.v3-info-card,.care-card,.care-question,.care-detail) {
+  background:#1b3026!important;border-color:#3c5948!important;color:#eef6eb!important;box-shadow:0 12px 28px rgba(0,0,0,.16)!important;
+}
+html[data-theme="dark"] .studio-app :is(.surface-card,.form-card,.question-box,.report-score,.report-card,.detail-card,.care-paper,.support-entry,.v4-video-card,.v4-channel-card,.v3-feature,.bro-card,.mood-tile,.level-card,.up-card,.insight-stat,.trend-card,.diary-form,.quote-card,.motivation-card,.contact-card) :is(h1,h2,h3,h4,strong,b) {color:#f2f8ed!important}
+html[data-theme="dark"] .studio-app :is(.surface-card,.form-card,.question-box,.report-score,.report-card,.detail-card,.care-paper,.support-entry,.v4-video-card,.v4-channel-card,.v3-feature,.bro-card,.mood-tile,.level-card,.up-card,.trend-card,.diary-form,.quote-card,.motivation-card,.contact-card) :is(p,small,li,label) {color:#c7d8c9!important}
+html[data-theme="dark"] .studio-app :is(.quote-card.selected,.answer-choice.selected,.level-card.selected,.mood-tile.selected,.v3-feature.selected,.contact-line:hover) {background:#2a4835!important;border-color:#8bb392!important}
+html[data-theme="dark"] .studio-app :is(input,textarea,select,[contenteditable="true"]) {
+  background:#14261e!important;border:1px solid #5d8065!important;color:#f3f7ef!important;
+}
+html[data-theme="dark"] .studio-app :is(input,textarea)::placeholder {color:#b4c9b9!important;opacity:1}
+html[data-theme="dark"] .studio-app select option {background:#1c3227;color:#f4f7ef}
+html[data-theme="dark"] .studio-app :is(.answer-choice,.scenario-answer,.diary-mood,.ground-row,.chat-suggestions button,.v3-choice,.v3-option,.up-choice,.care-choice,.captcha-math,.vani-nav .btn-light) {background:#20392b!important;border-color:#4b6b53!important;color:#eef6e9!important}
+html[data-theme="dark"] .studio-app :is(.answer-choice,.scenario-answer,.diary-mood,.ground-row,.chat-suggestions button,.v3-choice,.v3-option,.up-choice,.care-choice):hover {background:#305240!important}
+html[data-theme="dark"] .studio-app :is(.answer-choice.selected,.diary-mood.selected,.ground-row.complete,.up-choice.selected,.care-choice.selected) {background:#345640!important;border-color:#a1c8a5!important}
+html[data-theme="dark"] .studio-app :is(.btn-soft,.v3-outline-button,.care-quiet-button,.v3-ghost-button,.up-link,.btn-light,.refresh-button.cream) {background:#294734!important;border:1px solid #789781!important;color:#f4f8ed!important}
+html[data-theme="dark"] .studio-app :is(.btn-solid,.v3-main-button,.care-main-button,.up-button) {background:#39674c!important;border-color:#9ab9a2!important;color:#fff!important}
+html[data-theme="dark"] .studio-app :is(.btn-solid,.v3-main-button,.care-main-button,.up-button):hover {background:#447a5b!important}
+html[data-theme="dark"] .studio-app :is(.support-spotlight,.calm-hero,.v3-hero,.up-hero,.v4-video-hero,.v3-pagehead,.dash-hero) {background:linear-gradient(120deg,#214534,#2a6046)!important;border-color:#507d59!important}
+html[data-theme="dark"] .studio-app :is(.support-spotlight,.calm-hero,.v3-hero,.up-hero,.v4-video-hero,.v3-pagehead,.dash-hero) :is(h1,h2,h3,strong,span,p) {color:#f3faf1!important}
+html[data-theme="dark"] .studio-app :is(.tip-note,.info-strip,.success-note,.contact-portrait-wrap,.care-tip,.v3-notice,.up-hint,.up-info,.chat-note) {background:#233d2f!important;border-color:#517458!important;color:#f1f6ed!important}
+html[data-theme="dark"] .studio-app :is(.tip-note,.info-strip,.success-note,.care-tip,.v3-notice,.up-hint,.up-info,.chat-note) :is(p,span,strong) {color:#edf5e8!important}
+html[data-theme="dark"] .studio-app :is(.report-table,.score-bar,.stat-card,.score-card,.up-chart,.v3-chart,.chart-card,.progress-card) {background:#1b3026!important;color:#edf4e8!important;border-color:#476753!important}
+html[data-theme="dark"] .studio-app :is(.support-entry,.up-card,.contact-line) a {color:#d1eccc!important}
+html[data-theme="dark"] .studio-app :is(.contact-tag,.contact-role,.number-pill,.offline-indicator,.privacy-tag) {background:#294735!important;color:#e7f5e5!important;border-color:#658b6d!important}
+html[data-theme="dark"] .studio-app .contact-card h3 {color:#f4f8ed!important}
+html[data-theme="dark"] .studio-app .contact-affiliation {color:#c7d6c8!important}
+html[data-theme="dark"] .studio-app .contact-intro-banner {background:#253c2e!important}
+html[data-theme="dark"] .studio-app .vani-hero {background-image:linear-gradient(90deg,rgba(7,23,16,.97),rgba(8,28,18,.82) 57%,rgba(8,28,18,.24) 100%),url('./vivekananda-portrait.webp')!important}
+html[data-theme="dark"] .studio-app .vani-hero .vani-overlay :is(h1,blockquote) {color:#fff!important}
+html[data-theme="dark"] .studio-app .vani-hero .vani-overlay :is(p,.eyebrow) {color:#f0f5e9!important}
+html[data-theme="dark"] .studio-app .vani-hero .vani-overlay .vani-link {color:#fbeec2!important}
+html[data-theme="dark"] .studio-app .vani-hero .vani-overlay .vani-nav span {color:#edf2e9!important}
+html[data-theme="dark"] .studio-app .vani-hero .vani-overlay .btn-light {background:#eaf3e4!important;color:#153c2f!important}
+html[data-theme="dark"] .studio-app .vani-hero .vani-overlay .btn-light :is(span,svg) {color:#153c2f!important}
+
+@media(max-width:770px){html[data-theme="dark"] .studio-app .nav-shade{background:rgba(2,12,6,.74)}}
+@media print {
+  /* Printed forms/reports remain readable and ink-efficient irrespective of the UI theme. */
+  html[data-theme="dark"] body,
+  html[data-theme="dark"] .studio-app,
+  html[data-theme="dark"] .studio-content{background:white!important;color:#111!important}
+  .studio-theme-toggle,.studio-drawer-appearance{display:none!important}
+}
+
+/* Bright-photo action chip: explicit high-contrast text in both appearances. */
+.studio-app .studio-story-chip,
+.studio-app .studio-story-chip :is(span,svg) {color:#194633!important}
+html[data-theme="dark"] .studio-app .studio-story-chip {background:#eff6eb!important;color:#183b2b!important;border:1px solid #cadac8!important}
+html[data-theme="dark"] .studio-app .studio-story-chip :is(span,svg) {color:#183b2b!important}
+
+/* Small editorial metadata is less faint in both themes. */
+.studio-app .studio-page-context,
+.studio-app .studio-page-context a,
+.studio-app .studio-section-intro>p,
+.studio-app .studio-feature-tile p,
+.studio-app .studio-tool-item small {color:#506f5e}
+html[data-theme="dark"] .studio-app .studio-page-context,
+html[data-theme="dark"] .studio-app .studio-page-context a,
+html[data-theme="dark"] .studio-app .studio-section-intro>p,
+html[data-theme="dark"] .studio-app .studio-feature-tile p,
+html[data-theme="dark"] .studio-app .studio-tool-item small {color:#c3d7c5}
+
+/* Personal-details and guardian forms: protect both text and surface contrast. */
+.studio-app .form-aside :is(h1,h2,h3,h4) {color:#f4faf0!important}
+.studio-app .form-aside :is(p,small,span:not(.icon-bubble)) {color:#e0eee1!important}
+html[data-theme="dark"] .studio-app .identity-intro {
+  background:linear-gradient(120deg,#284634,#223c2d)!important;
+  color:#f3f8ee!important;border-color:#56785d!important;
+}
+html[data-theme="dark"] .studio-app .identity-intro :is(h2,h3,strong) {color:#f4faee!important}
+html[data-theme="dark"] .studio-app .identity-intro p {color:#d1e2d1!important}
+html[data-theme="dark"] .studio-app .identity-step {color:#c6e4c6!important}
+html[data-theme="dark"] .studio-app .field>span,
+html[data-theme="dark"] .studio-app .form-top,
+html[data-theme="dark"] .studio-app .form-top strong,
+html[data-theme="dark"] .studio-app .form-top small {color:#d7e9d7!important}
+html[data-theme="dark"] .studio-app .identity-age-note,
+html[data-theme="dark"] .studio-app .identity-report-field {background:#263e30!important;border-color:#4e7355!important;color:#e8f5e8!important}
+html[data-theme="dark"] .studio-app .identity-age-note strong,
+html[data-theme="dark"] .studio-app .identity-report-field strong {color:#f2f9ed!important}
+html[data-theme="dark"] .studio-app .identity-report-field span,
+html[data-theme="dark"] .studio-app .identity-report-privacy {color:#c7d8c5!important}
+html[data-theme="dark"] .studio-app .identity-edit {color:#c9edc3!important}
+html[data-theme="dark"] .studio-app .form-top {border-color:#46614c!important}
+
+/* ============================================================
+   FINAL ACCESSIBILITY CONTRAST PASS
+   Fixes cross-page light heading inheritance and dark/light
+   mismatches in components from the original wellbeing modules.
+   ============================================================ */
+
+/* Content page headings have no dark hero backdrop. Always use
+   the corresponding readable foreground of the active theme. */
+html:not([data-theme="dark"]) .studio-app .v3-pagehead h1,
+html:not([data-theme="dark"]) .studio-app .v3-pagehead h2,
+html:not([data-theme="dark"]) .studio-app .v3-pagehead strong {
+  color:#173b30 !important;
+}
+html[data-theme="dark"] .studio-app .v3-pagehead :is(h1,h2,strong){color:#f1f7ed !important}
+
+/* Text on solid forest-green buttons must be light, whereas
+   pale secondary buttons retain dark lettering in light mode. */
+html:not([data-theme="dark"]) .studio-app :is(.v3-main-button,.care-main-button,.btn-solid,.up-button:not(.subdued),.up-link:not(.subdued)) {
+  color:#fff !important;
+}
+html:not([data-theme="dark"]) .studio-app :is(.up-button.subdued,.up-link.subdued) {
+  background:#edf5ea !important;color:#1c5140 !important;border:1px solid #bcd5bf !important;
+}
+
+/* Keep small interface copy above standard readable contrast on
+   cream and white surfaces. */
+html:not([data-theme="dark"]) .studio-app :is(
+  .v3-smallprint,.v3-stat-grid small,.v3-story-tile small,.v3-pagehead p,
+  .bro-card p,.small-muted,.empty-diagram p,.studio-stage-name small,
+  .studio-wisdom-copy>p,.page-title p,.contact-affiliation,
+  .scenario-info p,.challenge-card p,.v3-access-row small,
+  .v3-plan-create p,.v3-plan-list p,.v3-journal-paper p,
+  .v3-garden-panel p,.v3-insight-panel p,.v3-rule-note p,
+  .v3-rule-note small,.v3-helplines a,.care-small
+){color:#466050 !important}
+html:not([data-theme="dark"]) .studio-app .studio-wisdom-copy>p {color:#48614f!important}
+
+/* Theme-aware panels that previously kept a white background
+   even after their headings inherited the dark-theme light colour. */
+html[data-theme="dark"] .studio-app :is(
+  .v3-sky-selector,.v3-garden-panel,.v3-garden-intro,
+  .v3-journal-paper,.v3-journal-archive,.v3-plan-create,.v3-plan-list,
+  .v3-insight-panel,.v3-stat-grid article,.v3-access-panel,
+  .v3-relax-controls,.v3-rule-note,.v3-empty,.v3-suggestion,
+  .v3-plan-options label,.v3-insights-grid section,.v3-rule-flow>div,
+  .v3-plan-top,.v3-helplines a,.v3-integrations-grid article,
+  .v3-integration,.v3-ai-box,.v3-map-node,.v3-map-bottom,
+  .care-three-grid article,.care-literacy-card,.care-insight-band,
+  .care-dashboard-promo,.care-aside-help,.care-stack a,
+  .care-paper,.care-lesson-steps,.care-lesson-step,
+  .up-voice-list>div,.up-empty,.up-skill-tile,
+  .up-home-tile,.up-stats>div,.v4-video-notice,.v4-video-filters,
+  .v4-video-search,.studio-wisdom-copy
+) {
+  background:#1b3026 !important;
+  border-color:#4b6c56 !important;
+  color:#edf5e8 !important;
+}
+
+html[data-theme="dark"] .studio-app :is(
+  .v3-sky-selector,.v3-garden-panel,.v3-garden-intro,
+  .v3-journal-paper,.v3-journal-archive,.v3-plan-create,.v3-plan-list,
+  .v3-insight-panel,.v3-stat-grid article,.v3-access-panel,
+  .v3-relax-controls,.v3-rule-note,.v3-empty,.v3-suggestion,
+  .v3-plan-options label,.v3-insights-grid section,.v3-rule-flow>div,
+  .v3-plan-top,.v3-helplines a,.v3-integrations-grid article,
+  .v3-integration,.v3-ai-box,.v3-map-node,.v3-map-bottom,
+  .care-three-grid article,.care-literacy-card,.care-insight-band,
+  .care-dashboard-promo,.care-aside-help,.care-stack a,
+  .care-paper,.care-lesson-steps,.care-lesson-step,
+  .up-voice-list>div,.up-empty,.up-skill-tile,
+  .up-home-tile,.up-stats>div,.v4-video-notice,.v4-video-filters,
+  .v4-video-search,.studio-wisdom-copy
+) :is(h1,h2,h3,h4,h5,strong,b) {color:#f2f8ec !important}
+
+html[data-theme="dark"] .studio-app :is(
+  .v3-sky-selector,.v3-garden-panel,.v3-garden-intro,
+  .v3-journal-paper,.v3-journal-archive,.v3-plan-create,.v3-plan-list,
+  .v3-insight-panel,.v3-stat-grid article,.v3-access-panel,
+  .v3-relax-controls,.v3-rule-note,.v3-empty,.v3-suggestion,
+  .v3-plan-options label,.v3-insights-grid section,.v3-rule-flow>div,
+  .v3-plan-top,.v3-helplines a,.v3-integrations-grid article,
+  .v3-integration,.v3-ai-box,.v3-map-node,.v3-map-bottom,
+  .care-three-grid article,.care-literacy-card,.care-insight-band,
+  .care-dashboard-promo,.care-aside-help,.care-stack a,
+  .care-paper,.care-lesson-steps,.care-lesson-step,
+  .up-voice-list>div,.up-empty,.up-skill-tile,
+  .up-home-tile,.up-stats>div,.v4-video-notice,.v4-video-filters,
+  .v4-video-search,.studio-wisdom-copy
+) :is(p,small,label,li,dd,dt,.v3-smallprint,.v3-kicker) {color:#d0dfd0 !important}
+
+html[data-theme="dark"] .studio-app :is(
+  .v3-inline,.care-stack a,.care-text-link,.v4-video-notice a,
+  .v3-helplines a,.v3-map-bottomlinks a
+){color:#def2d7 !important}
+html[data-theme="dark"] .studio-app :is(.v3-main-button,.care-main-button) {
+  background:#356948 !important;color:#fff !important;border:1px solid #7dab88 !important;
+}
+html[data-theme="dark"] .studio-app .up-button.subdued {
+  background:#2d4f39 !important;color:#f1f9ed !important;border:1px solid #739d7c !important;
+}
+html[data-theme="dark"] .studio-app :is(.up-skill-tile,.care-literacy-card,.up-home-tile):hover{
+  background:#294836 !important;
+}
+html[data-theme="dark"] .studio-app :is(.v3-plan-options label,.v3-segments button,.v3-sound-grid button){
+  background:#263f30 !important;color:#eaf4e6 !important;border-color:#53765c !important;
+}
+html[data-theme="dark"] .studio-app .v3-sky-choice {background:#284535 !important;color:#f2f9ec !important;border-color:#587961 !important}
+html[data-theme="dark"] .studio-app .v3-sky-choice.selected {background:#3c6c4b !important;border-color:#b4d6b5 !important}
+html[data-theme="dark"] .studio-app .v3-sky-choice :is(span,strong,small){color:#edf7e9 !important}
+html[data-theme="dark"] .studio-app .v3-helplines a {color:#edf7e8 !important}
+html[data-theme="dark"] .studio-app .v3-helplines a strong {color:#f5faed !important}
+html[data-theme="dark"] .studio-app .studio-support-panel>a {background:#edf5e8 !important;color:#173b30 !important;border:1px solid #cbdcc9 !important}
+html[data-theme="dark"] .studio-app .studio-support-panel>a :is(span,svg){color:#173b30!important}
+
+/* Illustration remains bright in both themes: place caption on
+   an opaque readable panel instead of relying on inherited white. */
+html[data-theme="dark"] .studio-app .v3-sky-caption {
+  background:rgba(16,43,32,.91) !important;border-radius:14px;padding:13px 18px;
+}
+html[data-theme="dark"] .studio-app .v3-sky-caption :is(h2,h3,p,small){color:#f2f8ed !important}
+
+/* Dark/photographic banners have their own explicit light-on-dark colours. */
+.studio-app :is(.calm-hero,.support-spotlight,.v4-video-hero,.v3-hero,.up-hero,.care-academic-placeholder,.care-lesson-hero,.v3-relax-art,.studio-photo-story,.studio-feature-spotlight) :is(h1,h2,h3,blockquote,strong){color:#fbfdf7 !important}
+.studio-app :is(.calm-hero,.support-spotlight,.v4-video-hero,.v3-hero,.up-hero,.care-academic-placeholder,.care-lesson-hero,.v3-relax-art,.studio-feature-spotlight) p {color:#e2eee4 !important}
+.studio-app .studio-story-caption>strong {color:#fff!important}
+.studio-app .studio-support-panel h2 {color:#f8fbf5!important}
+.studio-app .studio-support-panel p {color:#e7f3e7!important}
+
+/* Labels and focus styling readable in both modes. */
+.studio-app :is(a,button,input,select,textarea,summary):focus-visible {outline:3px solid #d3ab51 !important;outline-offset:3px !important}
+html[data-theme="dark"] .studio-app :is(.field label,.up-field,.care-factor legend,.v3-slider-label){color:#e3f1df!important}
+html[data-theme="dark"] .studio-app .up-chart text {fill:#d6e7d2!important}
+html[data-theme="dark"] .studio-app .v3-pagehead .v3-heading-mark{color:#7ba58c!important}
+
+@media (prefers-reduced-motion:reduce){.studio-app :is(button,a,summary){transition:none!important}}
+
+/* Small instructional copy: explicit contrast without flattening coloured hero panels. */
+html:not([data-theme="dark"]) .studio-app :is(
+  .v3-kicker,.page-title .eyebrow,.exercise-shell>.eyebrow,
+  .v3-journal-prompts button,.v3-rule-flow small,.v3-empty p,
+  .v3-journal-archive>p,.v3-garden-intro>p,.v3-sky-caption p,
+  .v3-access-panel>p,.v3-sky-selector>.v3-kicker,
+  .v3-suggestion .v3-kicker,.v3-insight-panel>.v3-kicker,
+  .v3-relax-controls>.v3-kicker,.v4-library-title>p,
+  .v4-channel-data>p,.v4-video-content>p,
+  .v4-library-title p,.v4-video-card p,.up-skill-tile small,
+  .up-voice-list p,.up-card>p,.up-hint,.up-rule-note,
+  .care-three-grid p,.care-paper p,.care-literacy-card p,
+  .care-insight-band p,.care-aside-help p,.care-empty p,
+  .support-entry p,.support-entry a,.section-heading>p,
+  .v3-access-row small,.v3-segments button,.v3-switch,
+  .diary-mood,.chat-title small,.chat-note :is(p,a),
+  .scenario-info .eyebrow,.contact-extra-grid p,
+  .privacy-grid p,.v3-relax-controls p,.v3-sound-grid button,
+  .v3-sky-choice strong,.v3-sky-choice small,.v3-journal-label,
+  .v3-rule-note small,.v3-relax-controls label,.studio-intro-side>p
+) {color:#405d4c !important}
+
+html[data-theme="dark"] .studio-app :is(
+ .v3-journal-prompts button,.v3-care-option,.v4-video-notice a,
+ .up-rule-note,.v3-rule-note,.up-skill-tile small
+){background:#2a4635!important;border-color:#678a6e!important;color:#ecf5e8!important}
+html[data-theme="dark"] .studio-app .v3-care-option :is(span,strong,small){color:#edf6e8!important}
+html[data-theme="dark"] .studio-app .v3-journal-prompts button{color:#e7f4e2!important}
+html[data-theme="dark"] .studio-app .v4-video-notice a {color:#ecf6ea!important}
+html[data-theme="dark"] .studio-app .up-rule-note {color:#e2eee1!important;background:#27432f!important}
+html[data-theme="dark"] .studio-app :is(.v3-kicker,.page-title .eyebrow,.exercise-shell>.eyebrow,.scenario-info .eyebrow,.support-entry .eyebrow,.up-skills-feedback>p){color:#ccedcf!important}
+html[data-theme="dark"] .studio-app .v3-journal-prompts button.selected{background:#3a6948!important;color:#fff!important}
+html[data-theme="dark"] .studio-app .v3-sound-grid button.selected{background:#3e704d!important;color:#fff!important;border-color:#a5c8a6!important}
+html[data-theme="dark"] .studio-app .v3-sound-grid button.selected :is(strong,span){color:#fff!important}
+
+/* Distinguish highlighted labels on cream backgrounds. */
+html:not([data-theme="dark"]) .studio-app .v3-pagehead .v3-kicker {color:#35644b!important}
+html:not([data-theme="dark"]) .studio-app .v3-sky-caption p {color:#345941!important}
+html:not([data-theme="dark"]) .studio-app .studio-stage-name small {color:#4c6656!important}
+html:not([data-theme="dark"]) .studio-app .studio-story-caption strong {color:#fff!important}
+
+/* Final small-copy and metadata pass. */
+html:not([data-theme="dark"]) .studio-app :is(
+  .exercise-shell>p,.back-row a,.v4-video-notice p,
+  .support-entry .eyebrow,.info-strip>p,
+  .up-skills-feedback>p,.up-card>.up-eyebrow
+){color:#405c4d!important}
+html[data-theme="dark"] .studio-app .up-card>.up-eyebrow{color:#c7e6cf!important}
+html[data-theme="dark"] .studio-app .v3-switch:not(.on){background:#2c4637!important;color:#eef6e8!important;border-color:#739a7a!important}
+
+/* Garden completion summary was still a pale tile with near-white
+   counter text when dark appearance was selected. */
+html[data-theme="dark"] .studio-app .v3-garden-summary {
+  background:#294637 !important;border:1px solid #668b70 !important;color:#edf6e9 !important;
+}
+html[data-theme="dark"] .studio-app .v3-garden-summary :is(b,strong,span,small){color:#edf6e9 !important}
+
+/* The illustration's light canvas remains intentionally unchanged,
+   while descriptive captions below it use the current theme surface. */
+html[data-theme="dark"] .studio-app .v3-sky-caption {border:1px solid #4c7158 !important}
